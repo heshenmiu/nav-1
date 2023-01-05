@@ -56,14 +56,14 @@ window.onbeforeunload = ()=>{
     const string = JSON.stringify(hashMap);
     localStorage.setItem("x", string);
 };
-//输入框键盘事件,阻止冒泡
-$input.on("keypress", (e)=>{
-    e.stopPropagation();
-});
 //键盘事件：跳转对应的网页
 $(document).on("keypress", (e)=>{
     const { key  } = e;
     for(let i = 0; i < hashMap.length; i++)if (hashMap[i].logo.toLowerCase() === key) window.open(hashMap[i].url);
+});
+//输入框键盘事件,阻止冒泡
+$input.on("keypress", (e)=>{
+    e.stopPropagation();
 });
 
 //# sourceMappingURL=index.de158e3a.js.map
