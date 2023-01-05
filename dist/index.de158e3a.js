@@ -57,13 +57,21 @@ window.onbeforeunload = ()=>{
     localStorage.setItem("x", string);
 };
 //输入框键盘事件,阻止冒泡
-$("input").on("keypress", (e)=>{
-    e.stopPropagation();
-});
+//   $('input').on('keypress', (e) => {
+//     e.stopPropagation();
+// });
 //键盘事件：跳转对应的网页
-$(document).on("keypress", (e)=>{
-    const { key  } = e;
-    for(let i = 0; i < hashMap.length; i++)if (hashMap[i].logo.toLowerCase() === key) window.open(hashMap[i].url);
+// $(document).on('keypress', (e) => {
+//     const {key} = e
+//     for (let i = 0; i < hashMap.length; i++) {
+//       if (hashMap[i].logo.toLowerCase() === key) {
+//         window.open(hashMap[i].url)
+//       }
+//     }
+//   });
+$(document).on("keyup", (e)=>{
+    const { key , altKey  } = e;
+    for(let i = 0; i < hashMap.length; i++)if (hashMap[i].logo.toLowerCase() === key && altKey) window.open(hashMap[i].url);
 });
 
 //# sourceMappingURL=index.de158e3a.js.map
